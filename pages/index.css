@@ -11,9 +11,10 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
+
   
   p {
-    font-size: 25px;
+    font-size: 18px;
   }
   
   .App {

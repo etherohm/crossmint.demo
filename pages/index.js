@@ -81,11 +81,11 @@ export default function Home() {
     return (
       <div className="App">
         <header className="App-header">
-          <Image src="/logo.svg" width="1000" height="50%" alt="logo" />
+          <Image src="/logo.svg" width="1000" height="100" alt="logo" />
           <p>
           Congrats, you have been awarded a Cinemark NFT. Enter your email below to claim it!
           </p><Form onSubmit={handleOnSubmit}>
-          <Form.Field
+          <Form.Field 
             id='user_email'
             control={Input}
             name='user_email'
@@ -93,6 +93,7 @@ export default function Home() {
             required
             icon='mail'
             iconPosition='left'
+            width={8}
           />
           <Button type='submit' color='green'>Claim!</Button>
         </Form>
