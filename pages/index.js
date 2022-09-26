@@ -1,6 +1,7 @@
 import { Form, Input, Button } from 'semantic-ui-react';
 import Swal from 'sweetalert2';
 import emailjs from 'emailjs-com';
+import Image from 'next/image'
 
 export default function Home() {
   /*
@@ -79,7 +80,7 @@ export default function Home() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src="logo.svg" className="App-logo" alt="logo" />
+          <Image src="logo.svg" className="App-logo" alt="logo" />
           <p>
           Congrats, you have been awarded a Cinemark NFT. Enter your email below to claim it!
           </p><Form onSubmit={handleOnSubmit}>
