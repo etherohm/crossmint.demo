@@ -13,6 +13,7 @@ export default function Home() {
   */
 
   const handleOnSubmit = async (e) => {
+
     try {
     e.preventDefault();
     let email = e.target[0].value;
@@ -26,7 +27,6 @@ export default function Home() {
         allowOutsideClick: false
       }
       )
-      e.target.reset()
       let crossmintid;
       await fetch(`api/mint?recipient=${email}`)
       .then((response) => response.json())
@@ -49,7 +49,8 @@ export default function Home() {
       if (status == "success"){
         // client side only 
         await emailjs.sendForm(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, e.target, process.env.NEXT_PUBLIC_EMAILJS_USER_ID)
-          Swal.fire({
+        e.target.reset()
+        Swal.fire({
             title: 'NFT Minted!',
             text: `We have sent instructions on how to claim your NFT to: ${email}`,
             icon: "success",
@@ -85,7 +86,7 @@ export default function Home() {
           Congrats, you have been awarded a Cinemark NFT. Enter your email below to claim it!
           </p><Form onSubmit={handleOnSubmit}>
           <Form.Field
-            id='form-input-control-email'
+            id='user_email'
             control={Input}
             name='user_email'
             placeholder='Email…'
