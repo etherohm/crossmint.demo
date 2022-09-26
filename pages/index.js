@@ -32,6 +32,7 @@ export default function Home() {
       .then((response) => response.json())
       .then((responseData) => crossmintid = responseData.id)
       .catch(error => console.log('error', error));
+      console.log("mint", responseData.id);
 
       var status;
       await fetch(`api/check?crossmintid=${crossmintid}`)
@@ -46,6 +47,7 @@ export default function Home() {
         .then((responseData) => status = responseData.onChain.status)
         .catch(error => console.log('error', error));
       }
+      console.log("check", responseData.onChain.status);
       if (status == "success"){
         // client side only 
         await emailjs.sendForm(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, e.target, process.env.NEXT_PUBLIC_EMAILJS_USER_ID)
@@ -59,7 +61,7 @@ export default function Home() {
       } else {
         Swal.fire(
           'Minting Error',
-          "Error minting the NFT.\nCrossmint ID: " + crossmintid,
+          "Error minting the NFT.\nCrossmint ID: " + (crossmintid || "None"),
           'error'
         )
       }
