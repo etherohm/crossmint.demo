@@ -80,7 +80,7 @@ export default function Home() {
     return (
       <div className="App">
         <header className="App-header">
-          <Image src="/logo.svg" width="1000" height="100%" className="App-logo" alt="logo" />
+          <Image src="/logo.svg" width="1000" height="50%" className="App-logo" alt="logo" />
           <p>
           Congrats, you have been awarded a Cinemark NFT. Enter your email below to claim it!
           </p><Form onSubmit={handleOnSubmit}>
